@@ -9,18 +9,18 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, check_smallest, index;
-	int sort_check = 1;
+	size_t i, j, index;
+	int tmp, check_smallest, sort_check = 1, swab_check;
 
 	while (sort_check == 1)
 	{
 		i = 0;
-		j = 0;
-		while (i < size - 1)
+		while (i < size)
 		{
 			check_smallest = array[i];
 			swab_check = 1;
-			while (j < size - 1)
+			j = i + 1;
+			while(j < size)
 			{
 				if (array[j] < check_smallest)
 				{
@@ -30,9 +30,13 @@ void selection_sort(int *array, size_t size)
 				}
 				j++;
 			}
-			tmp = array[i];
-			array[i] = array[index];
-			array[index] = tmp;
+			if (swab_check == 0)
+			{
+				tmp = array[i];
+				array[i] = array[index];
+				array[index] = tmp;
+				/* print_array(array, size); */
+			}
 			i++;
 		}
 		if (swab_check == 1)
