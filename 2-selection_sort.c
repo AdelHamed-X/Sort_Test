@@ -20,7 +20,7 @@ void selection_sort(int *array, size_t size)
 			check_smallest = array[i];
 			swab_check = 1;
 			j = i + 1;
-			while(j < size)
+			while (j < size)
 			{
 				if (array[j] < check_smallest)
 				{
@@ -35,7 +35,7 @@ void selection_sort(int *array, size_t size)
 				tmp = array[i];
 				array[i] = array[index];
 				array[index] = tmp;
-				/* print_array(array, size); */
+				print_array(array, size);
 			}
 			i++;
 		}
